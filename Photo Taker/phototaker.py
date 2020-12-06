@@ -26,7 +26,7 @@ while no_of_shots < max_shots:
     cv2.imshow("Camera",image)
 
 
-    cv2.waitKey(500)
+    cv2.waitKey(3000)
     no_of_shots+=1
 
 

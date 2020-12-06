@@ -44,8 +44,10 @@ def find():
     img = cv2.imread(img_path)
     model = load_model('newmodel.h5')
     shape = (100,100)
-    img = cv2.resize(img,shape)
-
+    try:
+        img = cv2.resize(img,shape)
+    except:
+        pass
     predict = model.predict(np.array([img]))
     output = { 0:'apple',1:'banana',2:'orange'}
     result = output[np.argmax(predict)]

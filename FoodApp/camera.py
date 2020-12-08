@@ -32,3 +32,9 @@ class VideoCamera(object):
         cv2.imwrite('static/people_photo/image.jpg',image)
         data = [jpeg.tobytes()]
         return data
+
+
+
+
+
+

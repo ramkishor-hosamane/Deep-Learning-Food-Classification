@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response,redirect
+from flask import Flask,render_template,Response,redirect,request
 import cv2
 from camera import VideoCamera
 app = Flask(__name__)
@@ -35,7 +35,7 @@ def generate_frames(camera):
 def index():
     global is_stream
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
-    return render_template("videostream.html",is_stream=is_stream,user_image = full_filename)
+    return render_template("home.html",is_stream=is_stream,user_image = full_filename)
 
 @app.route("/find")
 def find():
@@ -62,19 +62,26 @@ def ask():
 
 
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
-    return render_template("videostream.html",is_stream=is_stream,user_image = full_filename)
+    return render_template("home.html",is_stream=is_stream,user_image = full_filename)
 
 @app.route("/video")
 def video():
     return Response(generate_frames(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-'''
-@app.route("/photo")
-def photo():
-    return Response(gen_photo(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-'''
+@app.route("/local_photo", methods=['GET', 'POST'])
+def local_photo():
+    if request.method == 'POST':
+        if 'uploaded_local_photo' not in request.files:
+            print("No photos")
+        uploaded_local_photo = request.files['uploaded_local_photo']
+        print(uploaded_local_photo.filename)
+        path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_local_photo.filename)
+        print(path)
+
+        #uploaded_local_photo.save(path)
+    return redirect("find")
 
 
 

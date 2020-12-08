@@ -1,29 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-</head>
-<body>
-        <center>
-            <br><br>
-            <h3>Recognizing</h3>
-                        <br><br>
+{% extends "base.html" %}
+{% block content %}
 
-            <div style="width: 40%;">
+<div class="row" style="padding: 10px 10px;">
 
-            <div style="width: 200px;height: 200px;" class="border border-black">
-                        
-                        <img src="{{ test_image }}" alt="User Image">
-                    </div>
-                <h3>Fruit is {{ result}} </h3>
-            <br><br>
+    <!--Webstreaming-->
+    <div class="col-5">
+        <div class="card">
+            <h5 class="card-header .txt-center">Test Image</h5>
+            <div class="card-body">
+                <div >
+                    <center>
+                    <img src="{{ test_image }}" alt="User Image">
+                    <h3>Fruit is {{ result}} </h3>
+                    </center>
+                </div>
+                <br><br>
 
-                 <a class="btn btn-block btn-primary"  href="{{ url_for('ask')}}">Go Back</a>
-            
+                <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Go Back</a>
+
+            </div>
         </div>
-        </center>
+    </div>
+
+    <!-- Arrow-->
+    <div class="col-2 or">
+        <center>
+            <i class="fas fa-angle-double-right fa-9px"></i>
+
+       </center>
+    </div>
+
+    <!-- Fruit nutrion information-->
+    <div class="col-5">
+        <div class="card">
+            <h5 class="card-header">Fruit nutrion information</h5>
+            <div class="card-body">
+                
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
 </body>
+
 </html>

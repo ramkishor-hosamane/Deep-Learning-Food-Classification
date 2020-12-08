@@ -5,31 +5,35 @@
     <!--Webstreaming-->
     <div class="col-5">
         <div class="card">
-            <h5 class="card-header .txt-center">Camera</h5>
+            <h5 class="card-header txt-center">Camera</h5>
             <div class="card-body">
-                <div>
-                    {% if is_stream %}
-                    <div class="webcam-photo-holder">
-                        <img src="{{ url_for('video') }}" alt="">
+                <center>
+                    <div>
+                        {% if is_stream %}
+                        <div class="webcam-photo-holder">
+                            <img src="{{ url_for('video') }}" alt="">
 
+                        </div>
+                        <br><br>
+
+                        <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Stop</a>
+
+                        {% else %}
+                        <div class="webcam-photo-holder">
+                            <img src="{{ user_image }}" alt="">
+
+                            <!-- <img style="width: 400px;height: 300px;" src="static/people_photo/camera.png" alt=""> -->
+                        </div>
+
+                        <br><br>
+                        <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Take Photo</a>
+                        <br><br>
+                        <a class="btn btn-block btn-primary" href="{{ url_for('find')}}">Reconginze</a>
+
+                        {% endif %}
                     </div>
-                    <br><br>
+                </center>
 
-                    <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Stop</a>
-
-                    {% else %}
-                    <div class="webcam-photo-holder">
-
-                        <img src="{{ user_image }}" alt="User Image">
-                    </div>
-
-                    <br><br>
-                    <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Start</a>
-                    <br><br>
-                    <a class="btn btn-block btn-primary" href="{{ url_for('find')}}">Reconginze</a>
-
-                    {% endif %}
-                </div>
 
             </div>
         </div>
@@ -37,7 +41,9 @@
 
     <!-- OR-->
     <div class="col-2 or">
-        <center><h1>OR</h1></center>
+        <center>
+            <h1>OR</h1>
+        </center>
     </div>
 
     <!-- Drag n Drop photo-->
@@ -51,25 +57,28 @@
 
                         <div id="dropZone">Upload a local photo</div>
                         <img src="" nam style="max-width: 500px;max-height: 350px;" alt="">
-                      </div>
-    
+                    </div>
+
                 </center>
 
 
 
+                <form action="{{ url_for('local_photo')}}" method="POST" enctype="multipart/form-data">
+
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                        <form action="{{ url_for('local_photo')}}" method="POST" enctype="multipart/form-data">
+
+                        <div class="input-group-prepend">
+                            <input type="submit" value="Reconginze" class="input-group-text" id="inputGroupFileAddon01"></input>
+                        </div>
+                        <div class="custom-file">
                             <input type="file" class="custom-file-input" name="uploaded_local_photo" id="photo-upload"
-                            aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="photo-upload">Choose file</label>
-                            <button class="btn btn-block btn-primary" type="submit">Reconginze</button>
-                        </form>
-                    </div>
-                  </div>
+                                aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="photo-upload">Choose file</label>
+                        </div>
+
+                </div>
+            </form>
+
             </div>
         </div>
     </div>
@@ -78,24 +87,24 @@
 </div>
 <script>
 
-    $(document).ready(function(){
-        $("#photo-upload").on('change',function(){
+    $(document).ready(function () {
+        $("#photo-upload").on('change', function () {
             $("#photo-container > #dropZone").hide();
-            var input_file = document.getElementById("photo-upload")   
+            var input_file = document.getElementById("photo-upload")
             if (input_file.files && input_file.files[0]) {
-                        var reader = new FileReader();
+                var reader = new FileReader();
 
-                        reader.onload = function (e) {
-                            $("#photo-container > img")
-                                .attr('src', e.target.result)
-                                .width(150)
-                                .height(200);
-                                 };
+                reader.onload = function (e) {
+                    $("#photo-container > img")
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
 
-                    reader.readAsDataURL(input_file.files[0]);
-            }   
-    
+                reader.readAsDataURL(input_file.files[0]);
+            }
+
         });
     });    
-    </script>
+</script>
 {% endblock %}

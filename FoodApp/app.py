@@ -40,17 +40,20 @@ def index():
 @app.route("/find")
 def find():
     global is_stream
+
     img_path = os.path.join(app.config['UPLOAD_FOLDER'], 'fruit.jpg')
-    img = cv2.imread(img_path)
-    model = load_model('newmodel.h5')
-    shape = (100,100)
+
     try:
+        img = cv2.imread(img_path)
+        model = load_model('newmodel.h5')
+        shape = (100,100)
         img = cv2.resize(img,shape)
+        predict = model.predict(np.array([img]))
+        output = { 0:'apple',1:'banana',2:'orange'}
+        result = output[np.argmax(predict)]
     except:
-        pass
-    predict = model.predict(np.array([img]))
-    output = { 0:'apple',1:'banana',2:'orange'}
-    result = output[np.argmax(predict)]
+        result = "Not possible"
+        print(result)
     return render_template("recognize.html",test_image = img_path,result=result)
 
     
@@ -77,10 +80,10 @@ def local_photo():
             print("No photos")
         uploaded_local_photo = request.files['uploaded_local_photo']
         print(uploaded_local_photo.filename)
-        path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_local_photo.filename)
+        path = os.path.join(app.config['UPLOAD_FOLDER'], 'fruit.jpg')
         print(path)
 
-        #uploaded_local_photo.save(path)
+        uploaded_local_photo.save(path)
     return redirect("find")
 
 

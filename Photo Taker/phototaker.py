@@ -11,7 +11,6 @@ fruit = input("Enter fruit Name : ")
 no_of_shots = 0
 max_shots = int(input("Enter No of shots : "))
 
-
 camera = cv2.VideoCapture(0)
 x,y = 50,50
 w,h = 200,200

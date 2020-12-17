@@ -58,7 +58,25 @@ font-size: 8rem;
   }
 
 
+@keyframes arrow_fading{
+    0%{
+        transform: rotate(xx) translateX(-10px);
+        opacity: 1;
+        }
+    50%{
+        transform: rotate(xx) translateX(10%);
+        opacity: 0.1;
+        }
+    100%{
+        transform: rotate(xx) translateX(-10%);
+        opacity: 1;
 
+        }
+}
+
+.arrow{
+    animation: arrow_fading 1s infinite 0s linear;
+}
 
 </style>
 <!-- JQuery -->

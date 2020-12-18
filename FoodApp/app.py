@@ -46,14 +46,14 @@ def find():
     try:
         img = cv2.imread(img_path)
         model = load_model('newmodel.h5')
-        shape = (150,150)
+        shape = (100,100)
         img = cv2.resize(img,shape)
         predict = model.predict(np.array([img]))
         output = { 0:'apple',1:'banana',2:'kiwi',3:'lemon',4:'orange'}
         result = output[np.argmax(predict)]
-    except:
+    except Exception as e:
         result = "Not possible"
-        print(result)
+        print(result,e)
     return render_template("recognize.html",test_image = img_path,result=result)
 
     

@@ -6,7 +6,7 @@ try:
 except FileExistsError:
     print("Directory already exists")
 
-output_path = "Output/"
+output_path = "Output/Akanksha/"
 fruit = input("Enter fruit Name : ")
 no_of_shots = 0
 max_shots = int(input("Enter No of shots : "))

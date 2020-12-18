@@ -1,4 +1,5 @@
-"apple": {
+{
+    "apple": {
     "Name": "Apple",
     "Image": "https://i.pinimg.com/originals/03/52/63/03526336ef23211c5a4c91db0ff12d17.png" ,
     "Taste": ["Sweet with a little sour"],
@@ -9,7 +10,7 @@
         "Carbs": ["13.8 g"],
         "Sugar": ["10.4 g"],
         "Fiber": ["2.4 g"],
-        "Fat": p"0.2 g"],
+        "Fat": ["0.2 g"],
         "Disclaimer": ["(Nutrition values for 100 g of apples)"] },
     "Info": ["Apples are a good source of antioxidants, due to the presence of Vitamin C. They have high fibre and low calories, thereby facilitating weight loss. They can lower blood sugar and protect against diabetes. They reduce cholesterol levels as well. That's why... An apple a day can indeed keep the doctor away!"],
     "Dishes":["Apple Pie", "Applesauce", "Caramel Apples"]
@@ -20,8 +21,8 @@
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange-Fruit-Pieces.jpg/1200px-Orange-Fruit-Pieces.jpg",
     "Taste": ["Sour, sometimes sweet"],
     "Nutrition": {
-        "Calories": "47"
-        "Water": "87%,
+        "Calories": "47",
+        "Water": "87%",
         "Protein": ["0.9 g"],
         "Carbs": ["11.8 g"],
         "Sugar": ["9.4 g"],
@@ -99,4 +100,5 @@
         "Disclaimer": ["(Nutrition values for 100 g of kiwi)"] },
     "Info": ["Kiwi has a lot of health benefits. Due to its high water content, it works well for weight loss. It is also good to cure asthma. It protects against vision loss and reduces blood clotting."],
     "Dishes":["Kiwi Smoothie", "Kiwi Tart", "Kiwi Parfait"]
+}
 }

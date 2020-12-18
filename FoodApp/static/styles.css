@@ -1,0 +1,80 @@
+.webcam-photo-holder img{
+    height: 350px;width: 500px;
+}
+
+
+.project-title{
+font-weight: 450;
+font-size: 22px;
+}
+.button-text{
+font-weight: 400;
+font-size: 17px;
+text-transform: capitalize;
+}
+.area {
+padding: 15px;
+background: rgb(255, 255, 255);
+}
+#dropZone {
+border: 2px dashed #bbb;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding: 50px;
+text-align: center;
+font: 19pt bold arial;
+color: rgb(90, 90, 90);
+}
+
+.or h1{
+line-height: 500px;
+}
+
+.or i{
+line-height: 500px;
+font-size: 8rem;
+}
+.card
+{
+border: 1.5px solid #918f8f;
+}
+.card-header
+{
+text-align: center;
+border-bottom: 1.8px solid #a19f9f;;
+
+}
+
+
+@keyframes arrow_fading{
+0%{
+    transform: rotate(xx) translateX(-10px);
+    opacity: 1;
+    }
+50%{
+    transform: rotate(xx) translateX(10%);
+    opacity: 0.1;
+    }
+100%{
+    transform: rotate(xx) translateX(-10%);
+    opacity: 1;
+
+    }
+}
+
+.arrow{
+animation: arrow_fading 1s infinite 0s linear;
+}
+
+
+.nutrtion_info_container{
+    width: 100%;
+    border: none;
+}
+.nutrtion_info_container .key{
+    font-weight: 600;
+}
+.table td{
+    border: none;
+    font-size: 18px;
+}

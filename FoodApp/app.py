@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response,redirect,request
+from flask import Flask,render_template,Response,redirect,request,url_for
 import cv2
 from camera import VideoCamera
 app = Flask(__name__)
@@ -34,8 +34,8 @@ def generate_frames(camera):
 @app.route("/")
 def index():
     global is_stream
-    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
-    return render_template("home.html",is_stream=is_stream,user_image = full_filename)
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'camera.png')
+    return render_template("home.html",is_stream=is_stream,is_home=True,user_image = full_filename)
 
 @app.route("/find")
 def find():
@@ -65,7 +65,7 @@ def ask():
 
 
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'image.jpg')
-    return render_template("home.html",is_stream=is_stream,user_image = full_filename)
+    return render_template("home.html",is_stream=is_stream,is_home=False,user_image = full_filename)
 
 @app.route("/video")
 def video():

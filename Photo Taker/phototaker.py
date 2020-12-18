@@ -6,7 +6,7 @@ try:
 except FileExistsError:
     print("Directory already exists")
 
-output_path = "Output/Akanksha/"
+output_path = "Output/"
 fruit = input("Enter fruit Name : ")
 no_of_shots = 0
 max_shots = int(input("Enter No of shots : "))
@@ -26,7 +26,7 @@ while no_of_shots < max_shots:
     cv2.imshow("Camera",image)
 
 
-    cv2.waitKey(3000)
+    cv2.waitKey(1000)
     no_of_shots+=1
 
 

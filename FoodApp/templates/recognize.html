@@ -10,13 +10,13 @@
             <div class="card-body">
                 <div >
                     <center>
-                    <img src="{{ test_image }}" alt="User Image">
+                    <img style="width: 200px;height: 200px;" src="{{ test_image }}" alt="User Image">
                     <h3>Fruit is {{ result}} </h3>
                     </center>
                 </div>
                 <br><br>
 
-                <a class="btn btn-block btn-primary" href="{{ url_for('ask')}}">Go Back</a>
+                <a class="btn btn-block btn-primary button-text" href="{{ url_for('ask')}}">Go Back</a>
 
             </div>
         </div>
@@ -33,9 +33,23 @@
     <!-- Fruit nutrion information-->
     <div class="col-5">
         <div class="card">
-            <h5 class="card-header">Fruit nutrion information</h5>
+            <h5 class="card-header">Fruit Nutrition Information</h5>
             <div class="card-body">
-                
+                <table class="table nutrtion_info_container">
+                    <tr>
+                       <td class="key">Name</td>
+                       <td>Orange</td> 
+                    </tr>
+                    <tr>
+                        <td class="key">Color</td>
+                        <td>Orange</td> 
+                     </tr>
+                     <tr>
+                        <td class="key">Vitamin</td>
+                        <td>A</td> 
+                     </tr>
+                      
+                </table>
 
             </div>
         </div>

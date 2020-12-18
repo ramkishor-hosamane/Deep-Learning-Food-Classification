@@ -4,7 +4,7 @@
 <div class="row" style="padding: 10px 10px;">
 
     <!--Webstreaming-->
-    <div class="col-5">
+    <div class="col-4">
         <div class="card">
             <h5 class="card-header .txt-center">Test Image</h5>
             <div class="card-body">
@@ -31,42 +31,47 @@
     </div>
 
     <!-- Fruit nutrion information-->
-    <div class="col-5">
+    <div class="col-6">
         <div class="card">
             <h5 class="card-header">Fruit Nutrition Information</h5>
             <div class="card-body">
+                <center>
+                    <img style="width: 200px;height: 200px;" src="{{nutrition.Image}}" alt="">
+                </center>
                 <table class="table nutrtion_info_container">
                     <tr>
                        <td class="key">Name</td>
-                       <td>{{result}}</td> 
+                       <td class="value">{{result}}</td>
+                       <td></td>
+                       <td></td> 
                     </tr>
                     <tr>
-                        <td class="key">Taste</td>
-                        <td>{{nutrition.Taste}}</td> 
+                        <td  class="key">Taste</td>
+                        <td class="value">{{nutrition.Taste}}</td> 
                      </tr>
                      <tr>
-                        <td class="key">Calories</td>
-                        <td>{{nutrition.Nutrition.Calories}}</td> 
+                        <td  class="key">Calories</td>
+                        <td class="value">{{nutrition.Nutrition.Calories}}</td> 
                      </tr>
                      <tr>
-                        <td class="key">Water</td>
-                        <td>{{nutrition.Nutrition.Water}}</td> 
+                        <td  class="key">Water</td>
+                        <td class="value">{{nutrition.Nutrition.Water}}</td> 
                      </tr>
                         <tr>
-                        <td class="key">Protein</td>
-                        <td>{{nutrition.Nutrition.Protein}}</td> 
+                        <td  class="key">Protein</td>
+                        <td class="value">{{nutrition.Nutrition.Protein}}</td> 
                      </tr>                      
                      <tr>
-                        <td class="key">Sugar</td>
-                        <td>{{nutrition.Nutrition.Sugar}}</td> 
+                        <td  class="key">Sugar</td>
+                        <td class="value">{{nutrition.Nutrition.Sugar}}</td> 
                      </tr>
                      <tr>
-                        <td class="key">Fat</td>
-                        <td>{{nutrition.Nutrition.Fat}}</td> 
+                        <td  class="key">Fat</td>
+                        <td class="value">{{nutrition.Nutrition.Fat}}</td> 
                      </tr>
                      <tr >
-                        <td class="key">Info</td>
-                        <td><p>{{nutrition.Info}}</p></td> 
+                        <td  class="key">Info</td>
+                        <td class="value">{{nutrition.Info}}</td> 
                      </tr>
 
                      

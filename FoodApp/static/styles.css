@@ -68,13 +68,18 @@ animation: arrow_fading 1s infinite 0s linear;
 
 
 .nutrtion_info_container{
-    width: 100%;
+    width: 110%;
     border: none;
 }
 .nutrtion_info_container .key{
     font-weight: 600;
+    column-span: 3;
+}
+.nutrtion_info_container .value{
+    padding-left: 60px;
 }
 .table td{
     border: none;
     font-size: 18px;
+    
 }

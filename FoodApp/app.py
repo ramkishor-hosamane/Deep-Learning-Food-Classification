@@ -69,7 +69,7 @@ def find():
         shape = (100,100)
         img = cv2.resize(img,shape)
         predict = model.predict(np.array([img]))
-        output = { 0:'apple',1:'banana',2:'kiwi',3:'lemon',4:'orange'}
+        output = {0:'apple',1:'banana',2:'dragonfruit',3:'kiwi',4:'lemon',5:'orange'}
         result = output[np.argmax(predict)]
         nutrtion_info = get_json_file(os.getcwd()+'/Nutrition.json')
         print(nutrtion_info[result])

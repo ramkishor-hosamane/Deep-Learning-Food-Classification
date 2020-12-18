@@ -7,6 +7,7 @@ from keras.models import load_model
 import numpy as np
 import os
 
+import json
 PEOPLE_FOLDER = os.path.join('static', 'people_photo')
 
 app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
@@ -37,6 +38,25 @@ def index():
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'camera.png')
     return render_template("home.html",is_stream=is_stream,is_home=True,user_image = full_filename)
 
+
+
+
+
+
+def get_json_file(path):
+    json_dict={}
+    try:
+        with open(path) as f:
+            json_dict = json.load(f)
+    except Exception as e:
+        print(e)
+    
+    return json_dict
+
+
+
+
+
 @app.route("/find")
 def find():
     global is_stream
@@ -51,10 +71,14 @@ def find():
         predict = model.predict(np.array([img]))
         output = { 0:'apple',1:'banana',2:'kiwi',3:'lemon',4:'orange'}
         result = output[np.argmax(predict)]
+        nutrtion_info = get_json_file(os.getcwd()+'/Nutrition.json')
+        print(nutrtion_info[result])
+        nutrition=nutrtion_info[result]
     except Exception as e:
         result = "Not possible"
+        nutrition="Nothing"
         print(result,e)
-    return render_template("recognize.html",test_image = img_path,result=result)
+    return render_template("recognize.html",test_image = img_path,result=result,nutrition=nutrition)
 
     
 @app.route("/ask")

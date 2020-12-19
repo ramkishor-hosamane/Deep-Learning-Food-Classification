@@ -34,6 +34,10 @@ def generate_frames(camera):
 
 @app.route("/")
 def index():
+    return redirect("home")   
+
+@app.route("/home")
+def home():
     global is_stream
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'camera.png')
     return render_template("home.html",is_stream=is_stream,is_home=True,user_image = full_filename)

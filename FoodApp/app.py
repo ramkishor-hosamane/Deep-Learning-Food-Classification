@@ -70,7 +70,7 @@ def find():
     try:
         img = cv2.imread(img_path)
         model = load_model('newmodel.h5')
-        shape = (100,100)
+        shape = (150,150)
         img = cv2.resize(img,shape)
         predict = model.predict(np.array([img]))
         output = {0:'apple',1:'banana',2:'dragonfruit',3:'kiwi',4:'lemon',5:'orange'}
